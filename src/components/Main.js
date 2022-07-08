@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IoLogoGithub } from "react-icons/io";
+import SearchImg from "../assets/SVG/drawkit-14.svg";
 import Profil from "./Profil";
 
 const Main = () => {
@@ -26,6 +27,7 @@ const Main = () => {
       setData(profilJson);
       setRepo(repositoriesJson);
     }
+    setUsername("");
   };
 
   return (
@@ -41,7 +43,7 @@ const Main = () => {
           onChange={onChageHandler}
           value={username}
           type="text"
-          placeholder="search repo..."
+          placeholder="search user profil.."
           className="py-2 px-3 border border-slate-500 rounded-2xl mr-2 text-sm"
         />
         <button
@@ -53,10 +55,15 @@ const Main = () => {
         </button>
       </div>
       {data.login === undefined ? (
-        <p className="mt-10">Search Something</p>
+        <div className="mt-20">
+          <img src={SearchImg} alt="search" />
+          <p className="mt-10 text-slate-500 text-xl">type something...</p>
+        </div>
       ) : (
         <Profil
-          username={data.login}
+          name={data.name}
+          bio={data.bio}
+          location={data.location}
           avatar={data.avatar_url}
           url={data.html_url}
           repos={repo}
