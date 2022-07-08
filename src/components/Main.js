@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { IoLogoGithub } from "react-icons/io";
+import Profil from "./Profil";
 
 const Main = () => {
+  const [data, setData] = useState({});
   const [username, setUsername] = useState("");
+  const [repo, setRepo] = useState([]);
 
   const baseUrl = "https://api.github.com/users";
 
@@ -15,7 +18,14 @@ const Main = () => {
 
     const profile = await fetch(`${baseUrl}/${username}`);
     const profilJson = await profile.json();
-    console.log(profilJson);
+
+    const repositories = await fetch(profilJson.repos_url);
+    const repositoriesJson = await repositories.json();
+
+    if (profilJson) {
+      setData(profilJson);
+      setRepo(repositoriesJson);
+    }
   };
 
   return (
@@ -42,6 +52,16 @@ const Main = () => {
           Search
         </button>
       </div>
+      {data.login === undefined ? (
+        <p className="mt-10">Search Something</p>
+      ) : (
+        <Profil
+          username={data.login}
+          avatar={data.avatar_url}
+          url={data.html_url}
+          repos={repo}
+        />
+      )}
     </div>
   );
 };
