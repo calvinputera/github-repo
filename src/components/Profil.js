@@ -17,10 +17,10 @@ const Profil = ({ name, bio, location, avatar, url, repos }) => {
           target="_blank"
           className="flex items-center text-xs self-end text-slate-500 mt-8"
         >
-          <span className="mr-1">
+          Go to GitHub Profil
+          <span className="ml-1">
             <IoMdOpen />
           </span>
-          Go GitHub Profil
         </a>
       </div>
       <div className="w-full p-4 border border-slate-300 rounded-2xl mt-6 text-slate-800">
