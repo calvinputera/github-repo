@@ -43,24 +43,24 @@ const Main = () => {
 
   return (
     <div className="p-6 flex flex-col items-center font-noto-sans">
-      <h1 className="text-3xl font-bold flex items-center">
+      <h1 className="text-3xl font-bold flex items-center md:text-5xl">
         <span className="mr-2">
           <IoLogoGithub color="#0f172a" />
         </span>
         GitHub Repo
       </h1>
-      <div className="flex items-center mt-6">
+      <div className="flex items-center mt-8">
         <input
           onChange={onChangeHandler}
           value={username}
           type="text"
-          placeholder="search username profil.."
-          className="py-2 px-3 border border-slate-500 rounded-2xl mr-2 text-sm"
+          placeholder="search username..."
+          className="py-2 px-3 border border-slate-500 rounded-2xl mr-2 text-sm md:py-3 md:px-5 md:text-lg md:rounded-3xl"
         />
         <button
           onClick={search}
           type="submit"
-          className="bg-slate-900 text-white py-2 px-4 rounded-2xl text-sm"
+          className="bg-slate-900 text-white py-2 px-4 rounded-2xl text-sm hover:opacity-80 hover:duration-150 md:text-lg md:py-3 md:px-6 md:rounded-3xl"
         >
           Search
         </button>
